@@ -25,7 +25,6 @@
 		B7378977180762440076A88C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B737896D180762440076A88C /* Default.png */; };
 		B7378978180762440076A88C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B737896E180762440076A88C /* Default@2x.png */; };
 		B73789871807631A0076A88C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B73789851807631A0076A88C /* main.m */; };
-		B737898A1807642B0076A88C /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B737894B180761A90076A88C /* libcocos2d.a */; };
 		B7378994180767190076A88C /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3117B978D7009739AE /* QuartzCore.framework */; };
 		B77F1B3417B978D7009739AE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3317B978D7009739AE /* OpenGLES.framework */; };
@@ -36,6 +35,15 @@
 		B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
 		B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
+		BA00671E19DB21510018296E /* PoiretOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA00671D19DB21510018296E /* PoiretOne-Regular.ttf */; };
+		BA44ED0B19D7683700BF35CB /* Triangle.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED0A19D7683700BF35CB /* Triangle.m */; };
+		BA44ED0E19D7684100BF35CB /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED0D19D7684100BF35CB /* GameScene.m */; };
+		BA44ED1119D7767800BF35CB /* Pillar.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED1019D7767800BF35CB /* Pillar.m */; };
+		BA44ED1219D77E7A00BF35CB /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B737894B180761A90076A88C /* libcocos2d.a */; };
+		BA44ED1419D77ED000BF35CB /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA44ED1319D77ED000BF35CB /* GameKit.framework */; };
+		BA44ED1719D7A40E00BF35CB /* Easy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED1619D7A40E00BF35CB /* Easy.m */; };
+		BA44ED1A19D7A42700BF35CB /* Medium.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED1919D7A42700BF35CB /* Medium.m */; };
+		BA44ED1D19D7A43500BF35CB /* Hard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED1C19D7A43500BF35CB /* Hard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +98,20 @@
 		B77F1B3F17B978D7009739AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "../libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
+		BA00671D19DB21510018296E /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PoiretOne-Regular.ttf"; path = "../../../../../Desktop/fonts/Poiret_One/PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
+		BA44ED0919D7683700BF35CB /* Triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Triangle.h; sourceTree = "<group>"; };
+		BA44ED0A19D7683700BF35CB /* Triangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Triangle.m; sourceTree = "<group>"; };
+		BA44ED0C19D7684100BF35CB /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		BA44ED0D19D7684100BF35CB /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		BA44ED0F19D7767800BF35CB /* Pillar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pillar.h; sourceTree = "<group>"; };
+		BA44ED1019D7767800BF35CB /* Pillar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pillar.m; sourceTree = "<group>"; };
+		BA44ED1319D77ED000BF35CB /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		BA44ED1519D7A40E00BF35CB /* Easy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Easy.h; sourceTree = "<group>"; };
+		BA44ED1619D7A40E00BF35CB /* Easy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Easy.m; sourceTree = "<group>"; };
+		BA44ED1819D7A42700BF35CB /* Medium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medium.h; sourceTree = "<group>"; };
+		BA44ED1919D7A42700BF35CB /* Medium.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medium.m; sourceTree = "<group>"; };
+		BA44ED1B19D7A43500BF35CB /* Hard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hard.h; sourceTree = "<group>"; };
+		BA44ED1C19D7A43500BF35CB /* Hard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +119,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA44ED1419D77ED000BF35CB /* GameKit.framework in Frameworks */,
+				BA44ED1219D77E7A00BF35CB /* libcocos2d.a in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
-				B737898A1807642B0076A88C /* libcocos2d.a in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
 				B77F1B3417B978D7009739AE /* OpenGLES.framework in Frameworks */,
 				B77F1B3617B978D7009739AE /* OpenAL.framework in Frameworks */,
@@ -125,10 +148,10 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				BA44ED0819D7678100BF35CB /* Sprites */,
+				BA44ED0619D7675300BF35CB /* Scenes */,
 				B737893D1807617C0076A88C /* AppDelegate.h */,
 				B737893E1807617C0076A88C /* AppDelegate.m */,
-				B7378992180767190076A88C /* MainScene.h */,
-				B7378993180767190076A88C /* MainScene.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -185,6 +208,7 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA44ED1319D77ED000BF35CB /* GameKit.framework */,
 				8392007918EE8E3300B6C429 /* GLKit.framework */,
 				B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */,
 				B77F1B3117B978D7009739AE /* QuartzCore.framework */,
@@ -203,6 +227,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA00671B19DB213F0018296E /* Fonts */,
 				B73789911807667A0076A88C /* Icons */,
 				B737893A180761570076A88C /* Published-iOS */,
 			);
@@ -217,6 +242,42 @@
 				B73789861807631A0076A88C /* Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA00671B19DB213F0018296E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BA00671D19DB21510018296E /* PoiretOne-Regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		BA44ED0619D7675300BF35CB /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B7378992180767190076A88C /* MainScene.h */,
+				B7378993180767190076A88C /* MainScene.m */,
+				BA44ED0C19D7684100BF35CB /* GameScene.h */,
+				BA44ED0D19D7684100BF35CB /* GameScene.m */,
+				BA44ED1B19D7A43500BF35CB /* Hard.h */,
+				BA44ED1C19D7A43500BF35CB /* Hard.m */,
+				BA44ED1819D7A42700BF35CB /* Medium.h */,
+				BA44ED1919D7A42700BF35CB /* Medium.m */,
+				BA44ED1519D7A40E00BF35CB /* Easy.h */,
+				BA44ED1619D7A40E00BF35CB /* Easy.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		BA44ED0819D7678100BF35CB /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				BA44ED0919D7683700BF35CB /* Triangle.h */,
+				BA44ED0A19D7683700BF35CB /* Triangle.m */,
+				BA44ED0F19D7767800BF35CB /* Pillar.h */,
+				BA44ED1019D7767800BF35CB /* Pillar.m */,
+			);
+			name = Sprites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +364,7 @@
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
 				B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */,
+				BA00671E19DB21510018296E /* PoiretOne-Regular.ttf in Resources */,
 				B71F5916188484E7003F4D28 /* iPhone-old@2x.png in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
@@ -341,8 +403,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
+				BA44ED1719D7A40E00BF35CB /* Easy.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
+				BA44ED0E19D7684100BF35CB /* GameScene.m in Sources */,
+				BA44ED1A19D7A42700BF35CB /* Medium.m in Sources */,
+				BA44ED1119D7767800BF35CB /* Pillar.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				BA44ED1D19D7A43500BF35CB /* Hard.m in Sources */,
+				BA44ED0B19D7683700BF35CB /* Triangle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +486,7 @@
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -451,7 +519,7 @@
 					"\"Source/libs/cocos2d-iphone/external/ObjectAL\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",

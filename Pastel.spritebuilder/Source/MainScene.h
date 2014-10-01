@@ -7,7 +7,11 @@
 //
 
 #import "CCNode.h"
+#import "GameScene.h"
 
-@interface MainScene : CCNode
+
+@interface MainScene : CCNode{
+    GameScene *gameScene;
+}
 
 @end
