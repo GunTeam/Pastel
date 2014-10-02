@@ -12,13 +12,23 @@
 @implementation Easy
 
 -(void) didLoadFromCCB{
+    //set game variables
+    pillarGap = 85;
+    pillarSpeed = 3.;
+    pillarInterval = 1.8;
+    
     self.level = 3;
     [super didLoadFromCCB];
     CCNode *buttons = [CCBReader load:@"EasyButtons"];
     buttons.position = CGPointMake(screenWidth, 0);
     [self addChild:buttons z:1];
+    
+    
 }
 
-
+-(void) increaseLevel{
+    pillarSpeed += 1/pillarSpeed;
+    [self schedule:@selector(pillarSpawn:) interval:pillarInterval];
+}
 
 @end

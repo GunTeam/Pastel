@@ -13,6 +13,10 @@
 
 @interface GameScene : CCNode <CCPhysicsCollisionDelegate>
 {
+    double pillarGap;
+    double pillarSpeed;
+    double pillarInterval;
+    
     CGFloat screenWidth;
     CGFloat screenHeight;
     
@@ -21,10 +25,22 @@
     CGFloat intendedPosition;
     
     Triangle *triangle;
+    
+    NSMutableArray *pillArray;
+    
+    BOOL startCheckingPillars;
+    
+    CCLabelTTF *scoreLabel;
+    
+    int numPillarsSpawned;
+    
+    CCButton *_back;
+    
 }
 -(void)didLoadFromCCB;
 
 @property int level;
 @property int currentShipColor;
+@property int score;
 
 @end

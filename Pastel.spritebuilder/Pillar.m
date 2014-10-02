@@ -25,4 +25,9 @@
     }
 }
 
+-(void)customAnimation{
+    [_animatedPillar runAction:[CCActionFadeOut actionWithDuration:.5]];
+    [_animatedPillar runAction:[CCActionScaleBy actionWithDuration:.5 scaleX:2.8 scaleY:1.1]];
+}
+
 @end

@@ -10,11 +10,13 @@
 #import "cocos2d.h"
 
 @interface Pillar : CCSprite {
-    
+    CCSprite *_animatedPillar;
 }
 
 @property int colorInt;
 @property double speed;
+
+-(void) customAnimation;
 
 
 @end

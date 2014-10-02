@@ -11,14 +11,15 @@
 
 #import "GameScene.h"
 
-double pillarGap = 75;
-double pillarSpeed = 5;
-
 @implementation GameScene
 
 -(void) didLoadFromCCB{
+    _back.exclusiveTouch = false;
+    
     self.userInteractionEnabled = true;
     self.multipleTouchEnabled = true;
+    [[[CCDirector sharedDirector] view] setMultipleTouchEnabled:YES];
+
     
     CGRect screenBound = [[UIScreen mainScreen] bounds];
     CGSize screenSize = screenBound.size;
@@ -32,21 +33,27 @@ double pillarSpeed = 5;
 //    _physicsNode.debugDraw = true;
     
     triangle = (Triangle *)[CCBReader load:@"Triangle"];
-    triangle.position = CGPointMake(screenWidth/6, screenHeight/2);
+    triangle.position = CGPointMake(screenWidth/5, screenHeight/2);
     [_physicsNode addChild:triangle];
     self.currentShipColor = 1;
     
-    CCLabelTTF *titleLabel = [[CCLabelTTF alloc]initWithString:@"123" fontName:@"PoiretOne-Regular" fontSize:41];
-    titleLabel.color = [CCColor colorWithCcColor3b:ccBLACK];
-    titleLabel.anchorPoint = CGPointMake(1, 1);
-    titleLabel.position = CGPointMake(screenWidth*22/25, screenHeight);
-    [self addChild:titleLabel z:1];
+    self.score = 0;
+    scoreLabel = [[CCLabelTTF alloc]initWithString:[NSString stringWithFormat:@"%d",self.score] fontName:@"PoiretOne-Regular" fontSize:41];
+    scoreLabel.color = [CCColor colorWithCcColor3b:ccBLACK];
+    scoreLabel.anchorPoint = CGPointMake(1, 1);
+    scoreLabel.position = CGPointMake(screenWidth*22/25, screenHeight);
+    [self addChild:scoreLabel z:1];
     
     intendedPosition = screenHeight/2;
     
     [[CCDirector sharedDirector]setDisplayStats:true];
+
+    pillArray = [[NSMutableArray alloc]init];
+    startCheckingPillars = false;
+    [self schedule:@selector(gatePassCheck:) interval:1/30.];
     
-    [self schedule:@selector(pillarSpawn:) interval:.9];
+    numPillarsSpawned = 0;
+    [self schedule:@selector(pillarSpawn:) interval:pillarInterval];
 }
 
 -(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
@@ -73,6 +80,34 @@ double pillarSpeed = 5;
         triangle.position = CGPointMake(triangle.position.x, triangle.position.y - (triangle.position.y - intendedPosition)*.3);
     }
     
+}
+
+-(void)gatePassCheck:(CCTime)dt{
+    if (startCheckingPillars || [pillArray count] > 0){
+        Pillar *measuringPillar = [pillArray objectAtIndex:0];
+        if ((measuringPillar.position.x-triangle.position.x) < 0){
+            [[pillArray objectAtIndex:0] customAnimation];
+            [[pillArray objectAtIndex:1] customAnimation];
+            
+            [pillArray removeObjectAtIndex:0];//remove the first two, which is just two serial calls
+            [pillArray removeObjectAtIndex:0];
+            
+            self.score += 1;
+            scoreLabel.string = [NSString stringWithFormat:@"%d",self.score];
+            if (self.score % 10 == 0) {
+                //do the animation of increasing the speed
+                //reschedule the selector
+                [self increaseLevel];
+            }
+        }
+    }
+}
+
+-(void) increaseLevel{
+    //modify the speed and interval of the game
+    //speed controlled by pillarSpeed
+    //interval controlled by scheduled interval
+    //gap controlled by pillarGap
 }
 
 -(void) changeShipColor:(CGFloat)touchPosition{
@@ -121,7 +156,19 @@ double pillarSpeed = 5;
     pillar2.speed = pillarSpeed;
     [_physicsNode addChild:pillar1];
     [_physicsNode addChild:pillar2];
+    [pillArray addObject:pillar1];
+    [pillArray addObject:pillar2];
+    numPillarsSpawned += 1;
+    if (numPillarsSpawned%10 == 0) {
+        [self unschedule:@selector(pillarSpawn:)];
+    }
     
+//    NSLog([NSString stringWithFormat:@"%d",[pillArray count]]);
+    
+}
+
+-(void) Back{
+    [[CCDirector sharedDirector]replaceScene:[CCBReader loadAsScene:@"MainScene"]];
 }
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair triangle:(Triangle *)triangle pillar:(Pillar *)pillar{

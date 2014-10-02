@@ -12,13 +12,24 @@
 @implementation Medium
 
 -(void) didLoadFromCCB{
+    //set game variables
+    pillarGap = 80;
+    pillarSpeed = 4.;
+    pillarInterval = 1.6;
+    
     self.level = 4;
     [super didLoadFromCCB];
     CCNode *buttons = [CCBReader load:@"MediumButtons"];
     buttons.position = CGPointMake(screenWidth, 0);
     [self addChild:buttons z:1];
+    
+    
 }
 
+-(void) increaseLevel{
+    pillarSpeed += 1/pillarSpeed;
+    [self schedule:@selector(pillarSpawn:) interval:pillarInterval];
+}
 
 
 @end
