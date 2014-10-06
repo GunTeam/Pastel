@@ -85,6 +85,56 @@
 			<key>previewFolderHidden</key>
 			<true/>
 		</dict>
+		<key>ccbResources/Art/PlainPastel/Pillar/Blue.png</key>
+		<dict>
+			<key>scaleFrom</key>
+			<integer>2</integer>
+		</dict>
+		<key>ccbResources/Art/PlainPastel/Pillar/Green.png</key>
+		<dict>
+			<key>scaleFrom</key>
+			<integer>2</integer>
+		</dict>
+		<key>ccbResources/Art/PlainPastel/Pillar/Purple.png</key>
+		<dict>
+			<key>scaleFrom</key>
+			<integer>2</integer>
+		</dict>
+		<key>ccbResources/Art/PlainPastel/Pillar/Red.png</key>
+		<dict>
+			<key>scaleFrom</key>
+			<integer>2</integer>
+		</dict>
+		<key>ccbResources/Art/PlainPastel/Pillar/Yellow.png</key>
+		<dict>
+			<key>scaleFrom</key>
+			<integer>2</integer>
+		</dict>
+		<key>ccbResources/Art/PlainPastel/Triangle/Blue.png</key>
+		<dict>
+			<key>scaleFrom</key>
+			<integer>2</integer>
+		</dict>
+		<key>ccbResources/Art/PlainPastel/Triangle/Green.png</key>
+		<dict>
+			<key>scaleFrom</key>
+			<integer>2</integer>
+		</dict>
+		<key>ccbResources/Art/PlainPastel/Triangle/Purple.png</key>
+		<dict>
+			<key>scaleFrom</key>
+			<integer>2</integer>
+		</dict>
+		<key>ccbResources/Art/PlainPastel/Triangle/Red.png</key>
+		<dict>
+			<key>scaleFrom</key>
+			<integer>2</integer>
+		</dict>
+		<key>ccbResources/Art/PlainPastel/Triangle/Yellow.png</key>
+		<dict>
+			<key>scaleFrom</key>
+			<integer>2</integer>
+		</dict>
 		<key>ccbResources/ccbButtonHighlighted.png</key>
 		<dict>
 			<key>scaleFrom</key>

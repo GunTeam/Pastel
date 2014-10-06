@@ -46,7 +46,7 @@
     
     intendedPosition = screenHeight/2;
     
-    [[CCDirector sharedDirector]setDisplayStats:true];
+//    [[CCDirector sharedDirector]setDisplayStats:true];
 
     pillArray = [[NSMutableArray alloc]init];
     startCheckingPillars = false;
@@ -89,15 +89,20 @@
             [[pillArray objectAtIndex:0] customAnimation];
             [[pillArray objectAtIndex:1] customAnimation];
             
-            [pillArray removeObjectAtIndex:0];//remove the first two, which is just two serial calls
-            [pillArray removeObjectAtIndex:0];
-            
-            self.score += 1;
-            scoreLabel.string = [NSString stringWithFormat:@"%d",self.score];
-            if (self.score % 10 == 0) {
-                //do the animation of increasing the speed
-                //reschedule the selector
-                [self increaseLevel];
+            Pillar *colorPillar = [pillArray objectAtIndex:0];
+            if (triangle.colorInt != colorPillar.colorInt){
+                [self collision];
+            } else{
+                [pillArray removeObjectAtIndex:0];//remove the first two, which is just two serial calls
+                [pillArray removeObjectAtIndex:0];
+                
+                self.score += 1;
+                scoreLabel.string = [NSString stringWithFormat:@"%d",self.score];
+                if (self.score % 10 == 0) {
+                    //do the animation of increasing the speed
+                    //reschedule the selector
+                    [self increaseLevel];
+                }
             }
         }
     }
@@ -108,6 +113,11 @@
     //speed controlled by pillarSpeed
     //interval controlled by scheduled interval
     //gap controlled by pillarGap
+}
+
+-(void) collision{
+    //save high score for whichever level you're on
+    [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:@"MainScene"] withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
 }
 
 -(void) changeShipColor:(CGFloat)touchPosition{
@@ -162,9 +172,7 @@
     if (numPillarsSpawned%10 == 0) {
         [self unschedule:@selector(pillarSpawn:)];
     }
-    
-//    NSLog([NSString stringWithFormat:@"%d",[pillArray count]]);
-    
+        
 }
 
 -(void) Back{

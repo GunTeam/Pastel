@@ -31,5 +31,12 @@
     [self schedule:@selector(pillarSpawn:) interval:pillarInterval];
 }
 
+-(void) collision{
+    if ([[NSUserDefaults standardUserDefaults]integerForKey:@"Hard"] < self.score){
+        [[NSUserDefaults standardUserDefaults]setInteger:self.score forKey:@"Hard"];
+    }
+    [super collision];
+}
+
 
 @end

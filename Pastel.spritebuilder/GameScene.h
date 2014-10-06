@@ -38,6 +38,7 @@
     
 }
 -(void)didLoadFromCCB;
+-(void)collision;
 
 @property int level;
 @property int currentShipColor;

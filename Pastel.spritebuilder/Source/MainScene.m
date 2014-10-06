@@ -10,6 +10,15 @@
 
 @implementation MainScene
 
+-(void)didLoadFromCCB{
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:@"ReturningUser"]) {
+        [[NSUserDefaults standardUserDefaults]setBool:true forKey:@"ReturningUser"];
+        [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:@"Easy"];
+        [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:@"Medium"];
+        [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:@"Hard"];
+    }
+}
+
 -(void) Easy {
     [[CCDirector sharedDirector]replaceScene:[CCBReader loadAsScene:@"Easy"] withTransition:[CCTransition transitionRevealWithDirection:CCTransitionDirectionUp duration:.3]];
 }
