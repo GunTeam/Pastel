@@ -11,10 +11,14 @@
 
 @interface Triangle : CCSprite {
     CCSprite *_blue,*_purple,*_green,*_red,*_yellow;
+    NSArray *triArray;
 }
 
 -(void) changeColor:(int)newColor;
 
 @property int colorInt;
+@property bool isAlive;
+
+-(void)collision;
 
 @end

@@ -533,8 +533,6 @@
 						<real>1</real>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -577,7 +575,7 @@
 				<key>value</key>
 				<array>
 					<real>0.11999999731779099</real>
-					<real>1</real>
+					<real>0.89999997615814209</real>
 					<integer>2</integer>
 					<integer>2</integer>
 				</array>
@@ -607,6 +605,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

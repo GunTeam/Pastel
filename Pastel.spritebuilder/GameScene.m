@@ -15,7 +15,6 @@
 
 -(void) didLoadFromCCB{
     _back.exclusiveTouch = false;
-    
     self.userInteractionEnabled = true;
     self.multipleTouchEnabled = true;
     [[[CCDirector sharedDirector] view] setMultipleTouchEnabled:YES];
@@ -26,6 +25,12 @@
     screenWidth = screenSize.width;
     screenHeight = screenSize.height;
     
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        screenWidth = screenWidth/2;
+        screenHeight = screenHeight/2;
+    }
+    
     //add the physics node behind the gamescene buttons
     _physicsNode = [[CCPhysicsNode alloc]init];
     [self addChild:_physicsNode z:1];
@@ -34,6 +39,7 @@
     
     triangle = (Triangle *)[CCBReader load:@"Triangle"];
     triangle.position = CGPointMake(screenWidth/5, screenHeight/2);
+    triangle.isAlive = true;
     [_physicsNode addChild:triangle];
     self.currentShipColor = 1;
     
@@ -41,7 +47,7 @@
     scoreLabel = [[CCLabelTTF alloc]initWithString:[NSString stringWithFormat:@"%d",self.score] fontName:@"PoiretOne-Regular" fontSize:41];
     scoreLabel.color = [CCColor colorWithCcColor3b:ccBLACK];
     scoreLabel.anchorPoint = CGPointMake(1, 1);
-    scoreLabel.position = CGPointMake(screenWidth*22/25, screenHeight);
+    scoreLabel.position = CGPointMake(screenWidth*22/25, screenHeight*.9);
     [self addChild:scoreLabel z:1];
     
     intendedPosition = screenHeight/2;
@@ -51,7 +57,6 @@
     pillArray = [[NSMutableArray alloc]init];
     startCheckingPillars = false;
     [self schedule:@selector(gatePassCheck:) interval:1/30.];
-    
     numPillarsSpawned = 0;
     [self schedule:@selector(pillarSpawn:) interval:pillarInterval];
 }
@@ -79,7 +84,6 @@
         triangle.rotation = (triangle.position.y - intendedPosition)*.3;
         triangle.position = CGPointMake(triangle.position.x, triangle.position.y - (triangle.position.y - intendedPosition)*.3);
     }
-    
 }
 
 -(void)gatePassCheck:(CCTime)dt{
@@ -92,6 +96,8 @@
             Pillar *colorPillar = [pillArray objectAtIndex:0];
             if (triangle.colorInt != colorPillar.colorInt){
                 [self collision];
+                [triangle collision];
+                [self unschedule:@selector(gatePassCheck:)];
             } else{
                 [pillArray removeObjectAtIndex:0];//remove the first two, which is just two serial calls
                 [pillArray removeObjectAtIndex:0];
@@ -117,11 +123,19 @@
 
 -(void) collision{
     //save high score for whichever level you're on
+    for (Pillar *p in pillArray){
+        p.speed = -.3*p.speed;
+    }
+    [self unschedule:@selector(pillarSpawn:)];
+    [self schedule:@selector(collisionAfterDelay:) interval:.1 repeat:1 delay:.5];
+}
+
+-(void) collisionAfterDelay:(CCTime)dt{
     [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:@"MainScene"] withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
 }
 
 -(void) changeShipColor:(CGFloat)touchPosition{
-    int desiredShipColor = (int)touchPosition/(screenHeight/self.level);
+    int desiredShipColor = (int)touchPosition/(.9*screenHeight/self.level);
     if (self.currentShipColor != desiredShipColor){
         self.currentShipColor = desiredShipColor;
         [triangle changeColor:desiredShipColor];
@@ -159,7 +173,7 @@
         pillar2.colorInt = 4;
     }
     
-    int pillarHeight = rand() %  (int)(screenHeight - pillarGap);
+    int pillarHeight = rand() %  (int)(screenHeight*.9 - pillarGap);
     pillar1.position = CGPointMake(screenWidth, pillarHeight);
     pillar2.position = CGPointMake(screenWidth, pillarHeight+pillar1.contentSizeInPoints.height+pillarGap);
     pillar1.speed = pillarSpeed;
@@ -179,9 +193,14 @@
     [[CCDirector sharedDirector]replaceScene:[CCBReader loadAsScene:@"MainScene"]];
 }
 
-- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair triangle:(Triangle *)triangle pillar:(Pillar *)pillar{
-    CCLOG(@"Collision happened");
-    //implement game over animation and storage stuff
+- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair triangle:(Triangle *)collidedTri pillar:(Pillar *)pillar{
+    if (triangle.isAlive) {
+        triangle.isAlive = false;
+        [triangle collision];
+        [self collision];
+        CCLOG(@"physics collision");
+
+    }
     
     return true;
 }

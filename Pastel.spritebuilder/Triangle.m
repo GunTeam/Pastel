@@ -24,6 +24,8 @@
     _green.visible = false;
     _red.visible = false;
     self.colorInt = 1;
+    
+    triArray = @[_yellow,_purple,_blue,_green,_red];
 }
 
 -(void) changeColor:(int)newColor{
@@ -63,6 +65,34 @@
         _green.visible = false;
         _red.visible = true;
     }
+}
+
+-(void) triangleCrash:(CCSprite *)triangle{
+    triangle.visible = true;
+//    [triangle runAction:[CCActionFadeOut actionWithDuration:.5]];
+//    [triangle runAction:[CCActionScaleBy actionWithDuration:.5 scale:1.5]];
+}
+
+-(void) collision{
+    CCLOG(@"Triangle collision was called");
+    for (CCSprite *sprite in triArray){
+        [self triangleCrash:sprite];
+    }
+    
+    CCActionFadeOut *fade =[CCActionFadeOut actionWithDuration:.3];
+    CCActionScaleBy *scale = [CCActionScaleBy actionWithDuration:.7 scale:5];
+    CCActionDelay *delay = [CCActionDelay actionWithDuration:.1];
+    [_yellow runAction:fade];
+    [_yellow runAction:scale];
+    [_blue runAction:[CCActionSequence actionWithArray:@[delay,fade]]];
+    [_blue runAction:[CCActionSequence actionWithArray:@[delay,scale]]];
+    [_green runAction:[CCActionSequence actionWithArray:@[delay,delay,fade]]];
+    [_green runAction:[CCActionSequence actionWithArray:@[delay,delay,scale]]];
+    [_red runAction:[CCActionSequence actionWithArray:@[delay,delay,delay,fade]]];
+    [_red runAction:[CCActionSequence actionWithArray:@[delay,delay,delay,scale]]];
+    [_purple runAction:[CCActionSequence actionWithArray:@[delay,delay,delay,delay,fade]]];
+    [_purple runAction:[CCActionSequence actionWithArray:@[delay,delay,delay,delay,scale]]];
+    
 }
 
 

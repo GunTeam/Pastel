@@ -35,7 +35,6 @@
     int numPillarsSpawned;
     
     CCButton *_back;
-    
 }
 -(void)didLoadFromCCB;
 -(void)collision;

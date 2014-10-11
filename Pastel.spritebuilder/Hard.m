@@ -14,7 +14,7 @@
 -(void) didLoadFromCCB{
     //set game variables
     pillarGap = 75;
-    pillarSpeed = 5;
+    pillarSpeed = 6;
     pillarInterval = 1.3;
     
     self.level = 5;
@@ -27,7 +27,7 @@
 }
 
 -(void) increaseLevel{
-    pillarSpeed += 1/pillarSpeed;
+    pillarSpeed += 2/pillarSpeed;
     [self schedule:@selector(pillarSpawn:) interval:pillarInterval];
 }
 

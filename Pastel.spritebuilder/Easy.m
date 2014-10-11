@@ -14,8 +14,8 @@
 -(void) didLoadFromCCB{
     //set game variables
     pillarGap = 85;
-    pillarSpeed = 3.;
-    pillarInterval = 1.8;
+    pillarSpeed = 5;
+    pillarInterval = 1.5;
     
     self.level = 3;
     [super didLoadFromCCB];

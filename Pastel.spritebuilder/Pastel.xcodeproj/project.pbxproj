@@ -44,6 +44,7 @@
 		BA44ED1719D7A40E00BF35CB /* Easy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED1619D7A40E00BF35CB /* Easy.m */; };
 		BA44ED1A19D7A42700BF35CB /* Medium.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED1919D7A42700BF35CB /* Medium.m */; };
 		BA44ED1D19D7A43500BF35CB /* Hard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED1C19D7A43500BF35CB /* Hard.m */; };
+		BA5C4F3F19E8F9FA00C35B43 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5C4F3E19E8F9FA00C35B43 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		BA44ED1919D7A42700BF35CB /* Medium.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medium.m; sourceTree = "<group>"; };
 		BA44ED1B19D7A43500BF35CB /* Hard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hard.h; sourceTree = "<group>"; };
 		BA44ED1C19D7A43500BF35CB /* Hard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hard.m; sourceTree = "<group>"; };
+		BA5C4F3E19E8F9FA00C35B43 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA5C4F3F19E8F9FA00C35B43 /* iAd.framework in Frameworks */,
 				BA44ED1419D77ED000BF35CB /* GameKit.framework in Frameworks */,
 				BA44ED1219D77E7A00BF35CB /* libcocos2d.a in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
@@ -208,6 +211,7 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA5C4F3E19E8F9FA00C35B43 /* iAd.framework */,
 				BA44ED1319D77ED000BF35CB /* GameKit.framework */,
 				8392007918EE8E3300B6C429 /* GLKit.framework */,
 				B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */,
@@ -308,7 +312,7 @@
 		B77F1B2617B978D7009739AE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Apportable;
 				TargetAttributes = {
 					B77F1B2D17B978D7009739AE = {
@@ -428,8 +432,15 @@
 		B77F1CDC17B978D8009739AE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -438,9 +449,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -449,17 +465,28 @@
 		B77F1CDD17B978D8009739AE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
 					"NS_BLOCK_ASSERTIONS=1",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -469,7 +496,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -503,7 +529,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
