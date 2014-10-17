@@ -79,9 +79,9 @@
         [self triangleCrash:sprite];
     }
     
-    CCActionFadeOut *fade =[CCActionFadeOut actionWithDuration:.3];
+    CCActionFadeOut *fade =[CCActionFadeOut actionWithDuration:.5];
     CCActionScaleBy *scale = [CCActionScaleBy actionWithDuration:.7 scale:5];
-    CCActionDelay *delay = [CCActionDelay actionWithDuration:.1];
+    CCActionDelay *delay = [CCActionDelay actionWithDuration:.3];
     [_yellow runAction:fade];
     [_yellow runAction:scale];
     [_blue runAction:[CCActionSequence actionWithArray:@[delay,fade]]];

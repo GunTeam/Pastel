@@ -13,58 +13,58 @@
 
 
 //iAd codes
--(id)init
-{
-    if( (self= [super init]) )
-    {
-        // On iOS 6 ADBannerView introduces a new initializer, use it when available.
-            if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
-                _adView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
-                
-            } else {
-                _adView = [[ADBannerView alloc] init];
-            }
-            _adView.requiredContentSizeIdentifiers = [NSSet setWithObject:ADBannerContentSizeIdentifierLandscape];
-            _adView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierLandscape;
-            [[[CCDirector sharedDirector]view]addSubview:_adView];
-            [_adView setBackgroundColor:[UIColor clearColor]];
-            [[[CCDirector sharedDirector]view]addSubview:_adView];
-            _adView.delegate = self;
-    }
-    return self;
-}
-
-
-- (void)layoutAnimated:(BOOL)animated
-{
-    // As of iOS 6.0, the banner will automatically resize itself based on its width.
-    // To support iOS 5.0 however, we continue to set the currentContentSizeIdentifier appropriately.
-    CGRect contentFrame = [CCDirector sharedDirector].view.bounds;
-    _bannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierLandscape;
-    
-    CGRect bannerFrame = _bannerView.frame;
-    if (_bannerView.bannerLoaded) {
-        contentFrame.size.height -= _bannerView.frame.size.height;
-        bannerFrame.origin.y = contentFrame.size.height;
-    } else {
-        bannerFrame.origin.y = contentFrame.size.height;
-    }
-    
-    [UIView animateWithDuration:animated ? 0.25 : 0.0 animations:^{
-        _bannerView.frame = bannerFrame;
-    }];
-}
-
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    [self layoutAnimated:YES];
-
-}
-
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-    [self layoutAnimated:YES];
-}
-
-//end iAd codes
+//-(id)init
+//{
+//    if( (self= [super init]) )
+//    {
+//        // On iOS 6 ADBannerView introduces a new initializer, use it when available.
+//            if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
+//                _adView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+//                
+//            } else {
+//                _adView = [[ADBannerView alloc] init];
+//            }
+//            _adView.requiredContentSizeIdentifiers = [NSSet setWithObject:ADBannerContentSizeIdentifierLandscape];
+//            _adView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierLandscape;
+//            [[[CCDirector sharedDirector]view]addSubview:_adView];
+//            [_adView setBackgroundColor:[UIColor clearColor]];
+//            [[[CCDirector sharedDirector]view]addSubview:_adView];
+//            _adView.delegate = self;
+//    }
+//    return self;
+//}
+//
+//
+//- (void)layoutAnimated:(BOOL)animated
+//{
+//    // As of iOS 6.0, the banner will automatically resize itself based on its width.
+//    // To support iOS 5.0 however, we continue to set the currentContentSizeIdentifier appropriately.
+//    CGRect contentFrame = [CCDirector sharedDirector].view.bounds;
+//    _bannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierLandscape;
+//    
+//    CGRect bannerFrame = _bannerView.frame;
+//    if (_bannerView.bannerLoaded) {
+//        contentFrame.size.height -= _bannerView.frame.size.height;
+//        bannerFrame.origin.y = contentFrame.size.height;
+//    } else {
+//        bannerFrame.origin.y = contentFrame.size.height;
+//    }
+//    
+//    [UIView animateWithDuration:animated ? 0.25 : 0.0 animations:^{
+//        _bannerView.frame = bannerFrame;
+//    }];
+//}
+//
+//- (void)bannerViewDidLoadAd:(ADBannerView *)banner {
+//    [self layoutAnimated:YES];
+//
+//}
+//
+//- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
+//    [self layoutAnimated:YES];
+//}
+//
+////end iAd codes
 
 -(void)didLoadFromCCB{
     CGRect screenBound = [[UIScreen mainScreen] bounds];

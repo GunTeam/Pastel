@@ -131,7 +131,7 @@
 }
 
 -(void) collisionAfterDelay:(CCTime)dt{
-    [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:@"MainScene"] withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+    [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:@"MainScene"] withTransition:[CCTransition transitionCrossFadeWithDuration:1.5]];
 }
 
 -(void) changeShipColor:(CGFloat)touchPosition{
