@@ -25,7 +25,10 @@
     _red.visible = false;
     self.colorInt = 1;
     
-    triArray = @[_yellow,_purple,_blue,_green,_red];
+    triArray = @[_yellow,_red,_green,_purple,_blue];
+    
+    bezierSpace = 0;
+    self.colorChangeEnabled = true;
 }
 
 -(void) changeColor:(int)newColor{
@@ -75,24 +78,33 @@
 
 -(void) collision{
     CCLOG(@"Triangle collision was called");
+    int rotationAngle = arc4random() % 720 - 360;
+    int yAmp = arc4random() % 30 + 60;
+    int xAmp = arc4random() % 15 + 40;
     for (CCSprite *sprite in triArray){
         [self triangleCrash:sprite];
+        [sprite runAction:[CCActionRotateBy actionWithDuration:1 angle:rotationAngle]];
+        [sprite runAction:[CCActionFadeOut actionWithDuration:1]];
+        [sprite runAction:[CCActionMoveBy actionWithDuration:1 position:CGPointMake(cos(rand())*xAmp, sin(rand())*yAmp)]];
+        rotationAngle = -rotationAngle + .5*rotationAngle;
+        xAmp = xAmp*1.2;
+        yAmp = yAmp*1.25;
     }
-    
-    CCActionFadeOut *fade =[CCActionFadeOut actionWithDuration:.5];
-    CCActionScaleBy *scale = [CCActionScaleBy actionWithDuration:.7 scale:5];
-    CCActionDelay *delay = [CCActionDelay actionWithDuration:.3];
-    [_yellow runAction:fade];
-    [_yellow runAction:scale];
-    [_blue runAction:[CCActionSequence actionWithArray:@[delay,fade]]];
-    [_blue runAction:[CCActionSequence actionWithArray:@[delay,scale]]];
-    [_green runAction:[CCActionSequence actionWithArray:@[delay,delay,fade]]];
-    [_green runAction:[CCActionSequence actionWithArray:@[delay,delay,scale]]];
-    [_red runAction:[CCActionSequence actionWithArray:@[delay,delay,delay,fade]]];
-    [_red runAction:[CCActionSequence actionWithArray:@[delay,delay,delay,scale]]];
-    [_purple runAction:[CCActionSequence actionWithArray:@[delay,delay,delay,delay,fade]]];
-    [_purple runAction:[CCActionSequence actionWithArray:@[delay,delay,delay,delay,scale]]];
-    
+}
+
+-(void) accelerate{
+    int bezierMultiplier = 4;
+    bezierSpace +=10;
+    for (CCSprite *sprite in triArray){
+        [self triangleCrash:sprite];
+        ccBezierConfig bezier;
+        bezier.controlPoint_1 = ccp(bezierMultiplier*bezierSpace,0);
+        bezier.controlPoint_2 = ccp((bezierMultiplier-1)*bezierSpace, 0);
+        bezier.endPosition = ccp(0, 0);
+        CCActionBezierBy *bezierPath = [CCActionBezierBy actionWithDuration:1.3 bezier:bezier];
+        [sprite runAction:bezierPath];
+        bezierMultiplier--;
+    }
 }
 
 

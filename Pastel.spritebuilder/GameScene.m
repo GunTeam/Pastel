@@ -59,6 +59,10 @@
     [self schedule:@selector(gatePassCheck:) interval:1/30.];
     numPillarsSpawned = 0;
     [self schedule:@selector(pillarSpawn:) interval:pillarInterval];
+    
+    CCNode *topBar = [CCBReader load:@"topBar"];
+    topBar.position = CGPointMake(0, 0);
+    [self addChild:topBar z:1];
 }
 
 -(void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
@@ -66,7 +70,9 @@
     if (touchLocation.x < screenWidth/6){
         intendedPosition = touchLocation.y;
     } else if (touchLocation.x > screenWidth*22/25){
-        [self changeShipColor:touchLocation.y];
+        if (triangle.colorChangeEnabled) {
+            [self changeShipColor:touchLocation.y];
+        }
     }
 }
 
@@ -75,7 +81,9 @@
     if (touchLocation.x < screenWidth/6){
         intendedPosition = touchLocation.y;
     } else if (touchLocation.x > screenWidth*22/25){
-        [self changeShipColor:touchLocation.y];
+        if (triangle.colorChangeEnabled) {
+            [self changeShipColor:touchLocation.y];
+        }
     }
 }
 
@@ -119,6 +127,16 @@
     //speed controlled by pillarSpeed
     //interval controlled by scheduled interval
     //gap controlled by pillarGap
+    [triangle accelerate];
+    triangle.colorChangeEnabled = false;
+    [self scheduleOnce:@selector(resetTriangleColor:) delay:1.3];
+
+
+}
+
+-(void) resetTriangleColor:(CCTime)dt{
+    triangle.colorChangeEnabled = true;
+    [triangle changeColor:triangle.colorInt];
 }
 
 -(void) collision{
@@ -126,12 +144,21 @@
     for (Pillar *p in pillArray){
         p.speed = -.3*p.speed;
     }
+    triangle.colorChangeEnabled = false;
     [self unschedule:@selector(pillarSpawn:)];
-    [self schedule:@selector(collisionAfterDelay:) interval:.1 repeat:1 delay:.5];
+    [self scheduleOnce:@selector(collisionAfterDelay:) delay:1.5];
+    screenFlash =[CCBReader load:@"screenFlash"];
+    [self addChild:screenFlash];
+    [self scheduleOnce:@selector(takeDownScreenFlash:) delay:.1];
+    
+}
+
+-(void)takeDownScreenFlash:(CCTime)dt{
+    screenFlash.visible = false;
 }
 
 -(void) collisionAfterDelay:(CCTime)dt{
-    [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:@"MainScene"] withTransition:[CCTransition transitionCrossFadeWithDuration:1.5]];
+    [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:@"MainScene"] withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
 }
 
 -(void) changeShipColor:(CGFloat)touchPosition{

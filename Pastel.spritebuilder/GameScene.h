@@ -35,9 +35,12 @@
     int numPillarsSpawned;
     
     CCButton *_back;
+    
+    CCNode *screenFlash;
 }
 -(void)didLoadFromCCB;
 -(void)collision;
+-(void)increaseLevel;
 
 @property int level;
 @property int currentShipColor;
