@@ -32,6 +32,7 @@
 		BA44ED1A19D7A42700BF35CB /* Medium.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED1919D7A42700BF35CB /* Medium.m */; };
 		BA44ED1D19D7A43500BF35CB /* Hard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED1C19D7A43500BF35CB /* Hard.m */; };
 		BA5C4F3F19E8F9FA00C35B43 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5C4F3E19E8F9FA00C35B43 /* iAd.framework */; };
+		BAD17C2819F87FF400317B37 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD17C2719F87FF400317B37 /* GameKitHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,9 @@
 		BA44ED1B19D7A43500BF35CB /* Hard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hard.h; sourceTree = "<group>"; };
 		BA44ED1C19D7A43500BF35CB /* Hard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hard.m; sourceTree = "<group>"; };
 		BA5C4F3E19E8F9FA00C35B43 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		BAD17C2219F8730100317B37 /* Pastel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Pastel.entitlements; path = Pastel/Pastel.entitlements; sourceTree = "<group>"; };
+		BAD17C2619F87FF400317B37 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
+		BAD17C2719F87FF400317B37 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,7 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				BAD17C2319F87F2000317B37 /* GameKitFiles */,
 				BA44ED0819D7678100BF35CB /* Sprites */,
 				BA44ED0619D7675300BF35CB /* Scenes */,
 				B737893D1807617C0076A88C /* AppDelegate.h */,
@@ -151,6 +156,7 @@
 		B77F1B2517B978D7009739AE = {
 			isa = PBXGroup;
 			children = (
+				BAD17C2219F8730100317B37 /* Pastel.entitlements */,
 				B737893C1807616C0076A88C /* Source */,
 				B77F1B4617B978D7009739AE /* Resources */,
 				9222E2B918734FF800A246C7 /* libs */,
@@ -245,6 +251,15 @@
 			name = Sprites;
 			sourceTree = "<group>";
 		};
+		BAD17C2319F87F2000317B37 /* GameKitFiles */ = {
+			isa = PBXGroup;
+			children = (
+				BAD17C2619F87FF400317B37 /* GameKitHelper.h */,
+				BAD17C2719F87FF400317B37 /* GameKitHelper.m */,
+			);
+			name = GameKitFiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -280,7 +295,10 @@
 						DevelopmentTeam = X93K6M4D6X;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
-								enabled = 0;
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 1;
 							};
 						};
 					};
@@ -362,6 +380,7 @@
 				BA44ED1119D7767800BF35CB /* Pillar.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				BA44ED1D19D7A43500BF35CB /* Hard.m in Sources */,
+				BAD17C2819F87FF400317B37 /* GameKitHelper.m in Sources */,
 				BA44ED0B19D7683700BF35CB /* Triangle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +466,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = Pastel/Pastel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -487,6 +507,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = Pastel/Pastel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;

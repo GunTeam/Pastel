@@ -9,10 +9,12 @@
 #import "CCNode.h"
 #import "GameScene.h"
 #import <iAd/iAd.h>
+#import <GameKit/GameKit.h>
+#import <Foundation/Foundation.h>
 
 
 
-@interface MainScene : CCNode <ADBannerViewDelegate>{
+@interface MainScene : CCNode <ADBannerViewDelegate,GKGameCenterControllerDelegate>{
     ADBannerView *_adView;
     ADBannerView *_bannerView;
     
@@ -21,5 +23,6 @@
     CGFloat screenWidth,screenHeight;
     CCLabelTTF *easy,*easyScore,*medium,*mediumScore,*hard,*hardScore;
 }
+
 
 @end

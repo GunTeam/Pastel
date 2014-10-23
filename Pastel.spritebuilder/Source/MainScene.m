@@ -134,4 +134,14 @@
     [[CCDirector sharedDirector]replaceScene:[CCBReader loadAsScene:@"Hard"] withTransition:[CCTransition transitionRevealWithDirection:CCTransitionDirectionUp duration:.3]];
 }
 
+- (void) showGameCenter
+{
+    GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
+    if (gameCenterController != nil)
+    {
+        gameCenterController.gameCenterDelegate = self;
+        [self presentViewController: gameCenterController animated: YES completion:nil];
+    }
+}
+
 @end
