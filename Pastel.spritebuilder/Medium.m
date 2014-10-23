@@ -36,6 +36,8 @@
     if ([[NSUserDefaults standardUserDefaults]integerForKey:@"Medium"] < self.score){
         [[NSUserDefaults standardUserDefaults]setInteger:self.score forKey:@"Medium"];
     }
+    [[GameKitHelper sharedGameKitHelper] submitScore:(int64_t)self.score category:@"Medium"];
+
     [super collision];
 }
 

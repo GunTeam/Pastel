@@ -10,6 +10,7 @@
 #import <GameKit/GameKit.h>
 
 @protocol GameKitHelperProtocol<NSObject>
+-(void) onScoresSubmitted:(bool)success;
 @end
 
 //   Protocol to notify external
@@ -28,4 +29,8 @@ id<GameKitHelperProtocol> delegate;
 
 // Player authentication, info
 -(void) authenticateLocalPlayer;
+
+// Scores
+-(void) submitScore:(int64_t)score
+           category:(NSString*)category;
 @end

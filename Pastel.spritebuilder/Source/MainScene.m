@@ -10,13 +10,13 @@
 
 @implementation MainScene
 
-
-
 //iAd codes
 -(id)init
 {
+    [[GameKitHelper sharedGameKitHelper] authenticateLocalPlayer];
     if( (self= [super init]) )
     {
+        
         // On iOS 6 ADBannerView introduces a new initializer, use it when available.
             if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
                 _adView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
@@ -132,16 +132,6 @@
 
 -(void) Hard {
     [[CCDirector sharedDirector]replaceScene:[CCBReader loadAsScene:@"Hard"] withTransition:[CCTransition transitionRevealWithDirection:CCTransitionDirectionUp duration:.3]];
-}
-
-- (void) showGameCenter
-{
-    GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
-    if (gameCenterController != nil)
-    {
-        gameCenterController.gameCenterDelegate = self;
-        [self presentViewController: gameCenterController animated: YES completion:nil];
-    }
 }
 
 @end

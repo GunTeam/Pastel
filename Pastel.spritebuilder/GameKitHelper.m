@@ -7,7 +7,6 @@
 //
 
 #import "GameKitHelper.h"
-#import "GameConstants.h"
 
 @interface GameKitHelper () <GKGameCenterControllerDelegate> {
     BOOL _gameCenterFeaturesEnabled;
@@ -15,6 +14,10 @@
 @end
 
 @implementation GameKitHelper
+
+-(void) gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController{
+    //Nothing needed here
+}
 
 #pragma mark Singleton stuff
 
@@ -72,6 +75,41 @@
     UIViewController* rootVC = [self getRootViewController];
     [rootVC presentViewController:vc animated:YES
                        completion:nil];
+}
+
+-(void) submitScore:(int64_t)score
+           category:(NSString*)category {
+    //1: Check if Game Center
+    //   features are enabled
+    if (!_gameCenterFeaturesEnabled) {
+        CCLOG(@"Player not authenticated");
+        return;
+    }
+    
+    //2: Create a GKScore object
+    GKScore* gkScore =
+    [[GKScore alloc]
+     initWithLeaderboardIdentifier:category];
+    
+    //3: Set the score value
+    gkScore.value = score;
+    
+    //4: Send the score to Game Center
+
+    [gkScore reportScoreWithCompletionHandler:
+     ^(NSError* error) {
+         
+         [self setLastError:error];
+         
+         BOOL success = (error == nil);
+         
+         if ([_delegate
+              respondsToSelector:
+              @selector(onScoresSubmitted:)]) {
+             
+             [_delegate onScoresSubmitted:success];
+         }
+     }];
 }
 
 @end

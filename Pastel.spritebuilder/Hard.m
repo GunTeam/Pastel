@@ -7,6 +7,7 @@
 //
 
 #import "Hard.h"
+#import "GameKitHelper.h"
 
 
 @implementation Hard
@@ -36,6 +37,7 @@
     if ([[NSUserDefaults standardUserDefaults]integerForKey:@"Hard"] < self.score){
         [[NSUserDefaults standardUserDefaults]setInteger:self.score forKey:@"Hard"];
     }
+    [[GameKitHelper sharedGameKitHelper] submitScore:(int64_t)self.score category:@"Hard"];
     [super collision];
 }
 
