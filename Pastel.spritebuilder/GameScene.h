@@ -37,6 +37,8 @@
     CCButton *_back;
     
     CCNode *screenFlash;
+    
+    BOOL audio;
 }
 -(void)didLoadFromCCB;
 -(void)collision;

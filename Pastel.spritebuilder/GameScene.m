@@ -18,7 +18,8 @@
     self.userInteractionEnabled = true;
     self.multipleTouchEnabled = true;
     [[[CCDirector sharedDirector] view] setMultipleTouchEnabled:YES];
-
+    
+    audio = ![[NSUserDefaults standardUserDefaults]boolForKey:@"SFXOn"];
     
     CGRect screenBound = [[UIScreen mainScreen] bounds];
     CGSize screenSize = screenBound.size;
@@ -52,8 +53,6 @@
     
     intendedPosition = screenHeight/2;
     
-//    [[CCDirector sharedDirector]setDisplayStats:true];
-
     pillArray = [[NSMutableArray alloc]init];
     startCheckingPillars = false;
     [self schedule:@selector(gatePassCheck:) interval:1/30.];
@@ -101,6 +100,8 @@
             [[pillArray objectAtIndex:0] customAnimation];
             [[pillArray objectAtIndex:1] customAnimation];
             
+            
+            
             Pillar *colorPillar = [pillArray objectAtIndex:0];
             if (triangle.colorInt != colorPillar.colorInt){
                 [self collision];
@@ -109,7 +110,9 @@
             } else{
                 [pillArray removeObjectAtIndex:0];//remove the first two, which is just two serial calls
                 [pillArray removeObjectAtIndex:0];
-                
+                if (audio) {
+                    [colorPillar playSFX:colorPillar.colorInt];
+                }
                 self.score += 1;
                 scoreLabel.string = [NSString stringWithFormat:@"%d",self.score];
                 if (self.score % 10 == 0) {
@@ -143,6 +146,9 @@
     //save high score for whichever level you're on
     for (Pillar *p in pillArray){
         p.speed = -.3*p.speed;
+    }
+    if (audio) {
+        [[OALSimpleAudio sharedInstance] playEffect:@"Crash01.mp3"];
     }
     triangle.colorChangeEnabled = false;
     [self unschedule:@selector(pillarSpawn:)];
@@ -225,7 +231,6 @@
         triangle.isAlive = false;
         [triangle collision];
         [self collision];
-        CCLOG(@"physics collision");
 
     }
     

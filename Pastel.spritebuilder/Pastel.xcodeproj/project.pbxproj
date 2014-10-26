@@ -31,7 +31,16 @@
 		BA44ED1719D7A40E00BF35CB /* Easy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED1619D7A40E00BF35CB /* Easy.m */; };
 		BA44ED1A19D7A42700BF35CB /* Medium.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED1919D7A42700BF35CB /* Medium.m */; };
 		BA44ED1D19D7A43500BF35CB /* Hard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA44ED1C19D7A43500BF35CB /* Hard.m */; };
+		BA59573319F9EC5F00DCB6E5 /* TitleTrack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BA59573219F9EC5F00DCB6E5 /* TitleTrack.mp3 */; };
 		BA5C4F3F19E8F9FA00C35B43 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5C4F3E19E8F9FA00C35B43 /* iAd.framework */; };
+		BACA4EDB19FC30E000E96A39 /* ButtonSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = BACA4EDA19FC30E000E96A39 /* ButtonSprite.m */; };
+		BACA4EDE19FC368B00E96A39 /* SmallButtonSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = BACA4EDD19FC368B00E96A39 /* SmallButtonSprite.m */; };
+		BACA4EF519FC466A00E96A39 /* Note0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BACA4EE419FC466A00E96A39 /* Note0.mp3 */; };
+		BACA4EF819FC466A00E96A39 /* Note2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BACA4EE719FC466A00E96A39 /* Note2.mp3 */; };
+		BACA4EF919FC466A00E96A39 /* Note4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BACA4EE819FC466A00E96A39 /* Note4.mp3 */; };
+		BACA4EFD19FC466A00E96A39 /* Note3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BACA4EEC19FC466A00E96A39 /* Note3.mp3 */; };
+		BACA4EFE19FC466A00E96A39 /* Crash01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BACA4EED19FC466A00E96A39 /* Crash01.mp3 */; };
+		BACA4EFF19FC466A00E96A39 /* Note1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BACA4EEE19FC466A00E96A39 /* Note1.mp3 */; };
 		BAD17C2819F87FF400317B37 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD17C2719F87FF400317B37 /* GameKitHelper.m */; };
 /* End PBXBuildFile section */
 
@@ -88,7 +97,18 @@
 		BA44ED1919D7A42700BF35CB /* Medium.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medium.m; sourceTree = "<group>"; };
 		BA44ED1B19D7A43500BF35CB /* Hard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hard.h; sourceTree = "<group>"; };
 		BA44ED1C19D7A43500BF35CB /* Hard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hard.m; sourceTree = "<group>"; };
+		BA59573219F9EC5F00DCB6E5 /* TitleTrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = TitleTrack.mp3; path = ../../../../../Music/GarageBand/TitleTrack.mp3; sourceTree = "<group>"; };
 		BA5C4F3E19E8F9FA00C35B43 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		BACA4ED919FC30E000E96A39 /* ButtonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonSprite.h; sourceTree = "<group>"; };
+		BACA4EDA19FC30E000E96A39 /* ButtonSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonSprite.m; sourceTree = "<group>"; };
+		BACA4EDC19FC368B00E96A39 /* SmallButtonSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallButtonSprite.h; sourceTree = "<group>"; };
+		BACA4EDD19FC368B00E96A39 /* SmallButtonSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallButtonSprite.m; sourceTree = "<group>"; };
+		BACA4EE419FC466A00E96A39 /* Note0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Note0.mp3; path = ../../../../../Music/GarageBand/Note0.mp3; sourceTree = "<group>"; };
+		BACA4EE719FC466A00E96A39 /* Note2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Note2.mp3; path = ../../../../../Music/GarageBand/Note2.mp3; sourceTree = "<group>"; };
+		BACA4EE819FC466A00E96A39 /* Note4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Note4.mp3; path = ../../../../../Music/GarageBand/Note4.mp3; sourceTree = "<group>"; };
+		BACA4EEC19FC466A00E96A39 /* Note3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Note3.mp3; path = ../../../../../Music/GarageBand/Note3.mp3; sourceTree = "<group>"; };
+		BACA4EED19FC466A00E96A39 /* Crash01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Crash01.mp3; path = ../../../../../Music/GarageBand/Crash01.mp3; sourceTree = "<group>"; };
+		BACA4EEE19FC466A00E96A39 /* Note1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Note1.mp3; path = ../../../../../Music/GarageBand/Note1.mp3; sourceTree = "<group>"; };
 		BAD17C2219F8730100317B37 /* Pastel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Pastel.entitlements; path = Pastel/Pastel.entitlements; sourceTree = "<group>"; };
 		BAD17C2619F87FF400317B37 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		BAD17C2719F87FF400317B37 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
@@ -99,8 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B77F1B3817B978D7009739AE /* AudioToolbox.framework in Frameworks */,
 				B77F1B3A17B978D7009739AE /* AVFoundation.framework in Frameworks */,
+				B77F1B3817B978D7009739AE /* AudioToolbox.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
 				BA5C4F3F19E8F9FA00C35B43 /* iAd.framework in Frameworks */,
 				B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */,
@@ -197,6 +217,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA59573019F9EC4E00DCB6E5 /* Audio */,
 				BA17A8D519F1A63300FC9DB7 /* Images.xcassets */,
 				BA00671B19DB213F0018296E /* Fonts */,
 				B73789911807667A0076A88C /* Icons */,
@@ -247,8 +268,26 @@
 				BA44ED0A19D7683700BF35CB /* Triangle.m */,
 				BA44ED0F19D7767800BF35CB /* Pillar.h */,
 				BA44ED1019D7767800BF35CB /* Pillar.m */,
+				BACA4ED919FC30E000E96A39 /* ButtonSprite.h */,
+				BACA4EDA19FC30E000E96A39 /* ButtonSprite.m */,
+				BACA4EDC19FC368B00E96A39 /* SmallButtonSprite.h */,
+				BACA4EDD19FC368B00E96A39 /* SmallButtonSprite.m */,
 			);
 			name = Sprites;
+			sourceTree = "<group>";
+		};
+		BA59573019F9EC4E00DCB6E5 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				BACA4EE419FC466A00E96A39 /* Note0.mp3 */,
+				BACA4EEE19FC466A00E96A39 /* Note1.mp3 */,
+				BACA4EE719FC466A00E96A39 /* Note2.mp3 */,
+				BACA4EEC19FC466A00E96A39 /* Note3.mp3 */,
+				BACA4EE819FC466A00E96A39 /* Note4.mp3 */,
+				BACA4EED19FC466A00E96A39 /* Crash01.mp3 */,
+				BA59573219F9EC5F00DCB6E5 /* TitleTrack.mp3 */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 		BAD17C2319F87F2000317B37 /* GameKitFiles */ = {
@@ -342,9 +381,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BACA4EFF19FC466A00E96A39 /* Note1.mp3 in Resources */,
+				BACA4EF519FC466A00E96A39 /* Note0.mp3 in Resources */,
+				BACA4EFD19FC466A00E96A39 /* Note3.mp3 in Resources */,
+				BACA4EF919FC466A00E96A39 /* Note4.mp3 in Resources */,
 				BA00671E19DB21510018296E /* PoiretOne-Regular.ttf in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				BA17A8D619F1A63300FC9DB7 /* Images.xcassets in Resources */,
+				BACA4EF819FC466A00E96A39 /* Note2.mp3 in Resources */,
+				BACA4EFE19FC466A00E96A39 /* Crash01.mp3 in Resources */,
+				BA59573319F9EC5F00DCB6E5 /* TitleTrack.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
+				BACA4EDB19FC30E000E96A39 /* ButtonSprite.m in Sources */,
 				BA44ED1719D7A40E00BF35CB /* Easy.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				BA44ED0E19D7684100BF35CB /* GameScene.m in Sources */,
@@ -381,6 +428,7 @@
 				B73789871807631A0076A88C /* main.m in Sources */,
 				BA44ED1D19D7A43500BF35CB /* Hard.m in Sources */,
 				BAD17C2819F87FF400317B37 /* GameKitHelper.m in Sources */,
+				BACA4EDE19FC368B00E96A39 /* SmallButtonSprite.m in Sources */,
 				BA44ED0B19D7683700BF35CB /* Triangle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

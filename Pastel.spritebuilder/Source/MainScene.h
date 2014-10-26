@@ -11,6 +11,8 @@
 #import <iAd/iAd.h>
 #import <GameKit/GameKit.h>
 #import <Foundation/Foundation.h>
+#import "ButtonSprite.h"
+#import "SmallButtonSprite.h"
 
 
 
@@ -19,10 +21,13 @@
     ADBannerView *_bannerView;
     
     GameScene *gameScene;
-    CCButton *_toggleSoundButton,*_easyButton,*_mediumButton,*_hardButton;
+    CCButton *_easyButton,*_mediumButton,*_hardButton;
     CGFloat screenWidth,screenHeight;
     CCLabelTTF *easy,*easyScore,*medium,*mediumScore,*hard,*hardScore;
+    CCButton *_toggleSoundButton,*_infoButton,*_highScoreButton;
 }
+
+@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 
 
 @end

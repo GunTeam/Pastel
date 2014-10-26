@@ -30,4 +30,10 @@
     [_animatedPillar runAction:[CCActionScaleBy actionWithDuration:.5 scaleX:2.8 scaleY:1.1]];
 }
 
+-(void) playSFX:(int)sound{
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    [audio playEffect:[NSString stringWithFormat:@"Note%d.mp3",sound]];
+
+}
+
 @end

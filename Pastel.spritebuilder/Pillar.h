@@ -17,6 +17,7 @@
 @property double speed;
 
 -(void) customAnimation;
+-(void) playSFX:(int)sound;
 
 
 @end
