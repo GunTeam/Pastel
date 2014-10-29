@@ -10,6 +10,7 @@
 
 @interface GameKitHelper () <GKGameCenterControllerDelegate> {
     BOOL _gameCenterFeaturesEnabled;
+    GKLocalPlayer* localPlayer;
 }
 @end
 
@@ -35,7 +36,7 @@
 
 -(void) authenticateLocalPlayer {
     
-    GKLocalPlayer* localPlayer = [GKLocalPlayer localPlayer];
+    localPlayer = [GKLocalPlayer localPlayer];
     
     localPlayer.authenticateHandler = ^(UIViewController *viewController,NSError *error) {
         
@@ -110,6 +111,10 @@
              [_delegate onScoresSubmitted:success];
          }
      }];
+}
+
+-(BOOL) userAuthenticated{
+    return localPlayer.authenticated;
 }
 
 @end

@@ -14,7 +14,7 @@
 //iAd codes
 -(id)init
 {
-//    [[GameKitHelper sharedGameKitHelper] authenticateLocalPlayer];
+    [[GameKitHelper sharedGameKitHelper] authenticateLocalPlayer];
     if( (self= [super init]) )
     {
         
@@ -219,6 +219,38 @@
         }
     }
     
+}
+
+-(void)highScores{
+    if([[GameKitHelper sharedGameKitHelper]userAuthenticated] == TRUE)
+    {
+        AppController * delegate = (AppController *)[[UIApplication sharedApplication]delegate];
+        
+        GKGameCenterViewController * leaderboardController = [[GKGameCenterViewController alloc] init];
+        
+        if (leaderboardController != NULL)
+        {
+            leaderboardController.gameCenterDelegate = self;
+            
+            [delegate.navController presentViewController:leaderboardController animated:YES completion:nil];
+            
+            CCLOG(@"created leaderboard");
+        }
+    }
+    else
+    {
+        UIAlertView * alertView = [[UIAlertView alloc]initWithTitle:@"Authentication failed" message:@"Game Center cannot be accessed. Please make sure you have logged in." delegate:self cancelButtonTitle:@"" otherButtonTitles:nil, nil];
+        
+        [alertView show];
+    }
+}
+
+- (void)leaderboardViewControllerDidFinish:(GKGameCenterViewController *)viewController
+{
+    CCLOG(@"pressed done button");
+    AppController * delegate = (AppController *)[[UIApplication sharedApplication] delegate];
+    
+    [delegate.navController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

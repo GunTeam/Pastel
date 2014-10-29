@@ -13,6 +13,7 @@
 #import <Foundation/Foundation.h>
 #import "ButtonSprite.h"
 #import "SmallButtonSprite.h"
+#import "AppDelegate.h"
 
 
 
