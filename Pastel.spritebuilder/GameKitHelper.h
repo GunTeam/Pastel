@@ -11,6 +11,7 @@
 
 @protocol GameKitHelperProtocol<NSObject>
 -(void) onScoresSubmitted:(bool)success;
+-(void) leaderboardViewControllerDidFinish:(GKGameCenterViewController *)viewController;
 @end
 
 //   Protocol to notify external

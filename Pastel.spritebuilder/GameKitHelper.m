@@ -7,6 +7,7 @@
 //
 
 #import "GameKitHelper.h"
+#import <GameKit/GameKit.h>
 
 @interface GameKitHelper () <GKGameCenterControllerDelegate> {
     BOOL _gameCenterFeaturesEnabled;
@@ -116,5 +117,7 @@
 -(BOOL) userAuthenticated{
     return localPlayer.authenticated;
 }
+
+
 
 @end

@@ -23,13 +23,12 @@
     CCNode *buttons = [CCBReader load:@"HardButtons"];
     buttons.position = CGPointMake(screenWidth, 0);
     [self addChild:buttons z:1];
-    
-    
+        
 }
 
 -(void) increaseLevel{
     [super increaseLevel];
-    pillarSpeed += 2/pillarSpeed;
+    pillarSpeed += 3/pillarSpeed;
     [self schedule:@selector(pillarSpawn:) interval:pillarInterval];
 }
 
@@ -38,6 +37,41 @@
         [[NSUserDefaults standardUserDefaults]setInteger:self.score forKey:@"Hard"];
     }
     [[GameKitHelper sharedGameKitHelper] submitScore:(int64_t)self.score category:@"Hard"];
+    
+    
+    if (self.score >= 100)
+    {
+        GKAchievement *achievement = [[GKAchievement alloc] initWithIdentifier:@"Hard"];
+
+        CCLOG(@"score is high enough");
+        achievement.percentComplete = 100;
+        achievement.showsCompletionBanner = true;
+        [GKAchievement reportAchievements:@[achievement] withCompletionHandler:^(NSError *error)
+         {
+             if (error != nil)
+             {
+                 NSLog(@"Error in reporting achievements: %@", error);
+             }
+         }];
+    }
+    
+    
+    if (self.score >= 200)
+    {
+        GKAchievement *achievement = [[GKAchievement alloc] initWithIdentifier:@"What"];
+        
+        CCLOG(@"score is high enough");
+        achievement.percentComplete = 100;
+        achievement.showsCompletionBanner = true;
+        [GKAchievement reportAchievements:@[achievement] withCompletionHandler:^(NSError *error)
+         {
+             if (error != nil)
+             {
+                 NSLog(@"Error in reporting achievements: %@", error);
+             }
+         }];
+    }
+    
     [super collision];
 }
 

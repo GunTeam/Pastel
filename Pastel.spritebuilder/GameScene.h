@@ -43,6 +43,7 @@
 -(void)didLoadFromCCB;
 -(void)collision;
 -(void)increaseLevel;
+-(void)pillarSpawn:(CCTime)dt;
 
 @property int level;
 @property int currentShipColor;

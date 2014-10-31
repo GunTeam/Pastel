@@ -14,12 +14,14 @@
 #import "ButtonSprite.h"
 #import "SmallButtonSprite.h"
 #import "AppDelegate.h"
+#import "Info.h"
 
 
 
 @interface MainScene : CCNode <ADBannerViewDelegate,GKGameCenterControllerDelegate>{
     ADBannerView *_adView;
     ADBannerView *_bannerView;
+    CCLabelTTF *_firstTimePrompt;
     
     GameScene *gameScene;
     CCButton *_easyButton,*_mediumButton,*_hardButton;

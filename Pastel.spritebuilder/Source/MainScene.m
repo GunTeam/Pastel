@@ -102,13 +102,15 @@
         screenWidth = screenWidth/2;
         screenHeight = screenHeight/2;
     }
-    
+    _firstTimePrompt.visible = false;
     if (![[NSUserDefaults standardUserDefaults]boolForKey:@"ReturningUser"]) {
         [[NSUserDefaults standardUserDefaults]setBool:true forKey:@"ReturningUser"];
         [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:@"Easy"];
         [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:@"Medium"];
         [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:@"Hard"];
         [[NSUserDefaults standardUserDefaults]setBool:true forKey:@"SFXOn"];
+        _firstTimePrompt.visible = true;
+
     }
     
     _toggleSoundButton.selected = [[NSUserDefaults standardUserDefaults]boolForKey:@"SFXOn"];
@@ -172,6 +174,10 @@
     [[CCDirector sharedDirector]replaceScene:[CCBReader loadAsScene:@"Hard"] withTransition:[CCTransition transitionRevealWithDirection:CCTransitionDirectionUp duration:.3]];
 }
 
+-(void) Info {
+    [[CCDirector sharedDirector]replaceScene:[CCBReader loadAsScene:@"Info"] withTransition:[CCTransition transitionRevealWithDirection:CCTransitionDirectionLeft duration:.3]];
+}
+
 -(void) bigButtonPulse:(float)power{
     int whichButton = arc4random()% 3;
     ButtonSprite *pulseButton;
@@ -224,17 +230,12 @@
 -(void)highScores{
     if([[GameKitHelper sharedGameKitHelper]userAuthenticated] == TRUE)
     {
-        AppController * delegate = (AppController *)[[UIApplication sharedApplication]delegate];
-        
         GKGameCenterViewController * leaderboardController = [[GKGameCenterViewController alloc] init];
         
-        if (leaderboardController != NULL)
-        {
+        if (leaderboardController != NULL) {
             leaderboardController.gameCenterDelegate = self;
             
-            [delegate.navController presentViewController:leaderboardController animated:YES completion:nil];
-            
-            CCLOG(@"created leaderboard");
+            [[CCDirector sharedDirector] presentViewController:leaderboardController animated:YES completion:nil];
         }
     }
     else
@@ -245,12 +246,9 @@
     }
 }
 
-- (void)leaderboardViewControllerDidFinish:(GKGameCenterViewController *)viewController
+- (void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
 {
-    CCLOG(@"pressed done button");
-    AppController * delegate = (AppController *)[[UIApplication sharedApplication] delegate];
-    
-    [delegate.navController dismissViewControllerAnimated:YES completion:nil];
+    [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

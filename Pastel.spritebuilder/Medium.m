@@ -23,12 +23,11 @@
     buttons.position = CGPointMake(screenWidth, 0);
     [self addChild:buttons z:1];
     
-    
 }
 
 -(void) increaseLevel{
     [super increaseLevel];
-    pillarSpeed += 1/pillarSpeed;
+    pillarSpeed += 3/pillarSpeed;
     [self schedule:@selector(pillarSpawn:) interval:pillarInterval];
 }
 
@@ -38,6 +37,24 @@
     }
     [[GameKitHelper sharedGameKitHelper] submitScore:(int64_t)self.score category:@"Medium"];
 
+    
+    GKAchievement *achievement = [[GKAchievement alloc] initWithIdentifier:@"Medium"];
+    
+    if (self.score >= 100)
+    {
+        CCLOG(@"score is high enough");
+        achievement.percentComplete = 100;
+        achievement.showsCompletionBanner = true;
+        [GKAchievement reportAchievements:@[achievement] withCompletionHandler:^(NSError *error)
+         {
+             if (error != nil)
+             {
+                 NSLog(@"Error in reporting achievements: %@", error);
+             }
+         }];
+    }
+
+    
     [super collision];
 }
 
