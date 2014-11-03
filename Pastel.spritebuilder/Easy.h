@@ -11,7 +11,11 @@
 #import "GameScene.h"
 
 @interface Easy : GameScene {
+    int tutorialStep;
     
+    CCSprite *_bottomLeft,*_topLeft,*_bottomRight,*_midRight,*_topRight;
+    CCLabelTTF *_colorTutLabel,*_posTutLabel;
+    CCNodeColor *_touchBox,*_continueLabel;
 }
 
 @end

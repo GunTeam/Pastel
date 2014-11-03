@@ -83,7 +83,7 @@
     }
     [_audioPlayer setNumberOfLoops:-1];
     [_audioPlayer setMeteringEnabled:YES];
-    [_audioPlayer play];
+
 }
 
 -(void)didLoadFromCCB{
@@ -91,6 +91,12 @@
     [self configureAudioPlayer];
     [self schedule:@selector(visualize:) interval:1/15.];
     //end audiovisualizer codes
+    if (![AVAudioSession sharedInstance].isOtherAudioPlaying){
+        [_audioPlayer play];
+    } else {
+//        self.audioPlayer = [[AVAudioPlayer alloc] initWithData:(AVAudioPlayer *)[AVAudioSession sharedInstance] error:nil];
+        [[NSUserDefaults standardUserDefaults]setBool:true forKey:@"SFXOn"];
+    }
     
     CGRect screenBound = [[UIScreen mainScreen] bounds];
     CGSize screenSize = screenBound.size;
@@ -108,7 +114,6 @@
         [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:@"Easy"];
         [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:@"Medium"];
         [[NSUserDefaults standardUserDefaults]setInteger:0 forKey:@"Hard"];
-        [[NSUserDefaults standardUserDefaults]setBool:true forKey:@"SFXOn"];
         _firstTimePrompt.visible = true;
 
     }
@@ -152,7 +157,10 @@
 -(void) ToggleSound{
     [[OALSimpleAudio sharedInstance]setEffectsMuted:![[NSUserDefaults standardUserDefaults]boolForKey:@"SFXOn"]];
     [_audioPlayer setVolume:[[NSUserDefaults standardUserDefaults]boolForKey:@"SFXOn"]];
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"SFXOn"]){
 
+        [_audioPlayer play];
+    }
     
     [[NSUserDefaults standardUserDefaults]setBool:![[NSUserDefaults standardUserDefaults]boolForKey:@"SFXOn"] forKey:@"SFXOn"];
 }
@@ -175,7 +183,7 @@
 }
 
 -(void) Info {
-    [[CCDirector sharedDirector]replaceScene:[CCBReader loadAsScene:@"Info"] withTransition:[CCTransition transitionRevealWithDirection:CCTransitionDirectionLeft duration:.3]];
+    [[CCDirector sharedDirector]pushScene:[CCBReader loadAsScene:@"Info"] withTransition:[CCTransition transitionRevealWithDirection:CCTransitionDirectionLeft duration:.3]];
 }
 
 -(void) bigButtonPulse:(float)power{
@@ -246,8 +254,7 @@
     }
 }
 
-- (void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
-{
+-(void) gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController {
     [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }
 

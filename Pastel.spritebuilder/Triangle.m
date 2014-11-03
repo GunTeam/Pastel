@@ -72,8 +72,6 @@
 
 -(void) triangleCrash:(CCSprite *)triangle{
     triangle.visible = true;
-//    [triangle runAction:[CCActionFadeOut actionWithDuration:.5]];
-//    [triangle runAction:[CCActionScaleBy actionWithDuration:.5 scale:1.5]];
 }
 
 -(void) collision{
@@ -94,17 +92,18 @@
 
 -(void) accelerate{
     int bezierMultiplier = 4;
-    bezierSpace +=10;
+    bezierSpace +=5;
     for (CCSprite *sprite in triArray){
         [self triangleCrash:sprite];
         ccBezierConfig bezier;
         bezier.controlPoint_1 = ccp(bezierMultiplier*bezierSpace,0);
         bezier.controlPoint_2 = ccp((bezierMultiplier-1)*bezierSpace, 0);
         bezier.endPosition = ccp(0, 0);
-        CCActionBezierBy *bezierPath = [CCActionBezierBy actionWithDuration:1.3 bezier:bezier];
+        CCActionBezierBy *bezierPath = [CCActionBezierBy actionWithDuration:1.2 bezier:bezier];
         [sprite runAction:bezierPath];
         bezierMultiplier--;
     }
+    [[OALSimpleAudio sharedInstance]playEffect:@"Flow1.mp3"];
 }
 
 

@@ -28,7 +28,7 @@
 
 -(void) increaseLevel{
     [super increaseLevel];
-    pillarSpeed += 3/pillarSpeed;
+    pillarSpeed += 2/pillarSpeed;
     [self schedule:@selector(pillarSpawn:) interval:pillarInterval];
 }
 

@@ -12,7 +12,7 @@
 @implementation Info
 
 -(void)Back{
-    [[CCDirector sharedDirector]replaceScene:[CCBReader loadAsScene:@"MainScene"] withTransition:[CCTransition transitionRevealWithDirection:CCTransitionDirectionRight duration:.3]];
+    [[CCDirector sharedDirector]popSceneWithTransition:[CCTransition transitionRevealWithDirection:CCTransitionDirectionRight duration:.3]];
 }
 
 @end
